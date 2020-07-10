@@ -21,12 +21,9 @@ public class MinSizeSubArraySum {
         if (endPosition-startPosintion==1) {
             return 1;
         }
-//        winSum-=arr[0];
-//        startPosintion++;
         if (endPosition == arr.length) {
             return arr.length;
         }
-//        winSum+=arr[endPosition];
         while (endPosition <= arr.length || startPosintion == endPosition) {
             if (winSum>=S) {
                 winSum-=arr[startPosintion];
