@@ -1,4 +1,4 @@
-package fastslowpointers;
+package twopointers;
 
 public class RemoveDuplicates {
     /**

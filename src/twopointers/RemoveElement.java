@@ -1,4 +1,4 @@
-package fastslowpointers;
+package twopointers;
 
 public class RemoveElement {
     public static int remove(int[] arr, int key) {
