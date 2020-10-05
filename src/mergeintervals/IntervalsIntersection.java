@@ -33,10 +33,7 @@ public class IntervalsIntersection {
     }
 
     public static boolean isOverlap(Interval a, Interval b) {
-        if (a.start > b.end || a.end < b.start) {
-            return true;
-        }
-        return false;
+        return a.start > b.end || a.end < b.start;
     }
 
     public static void main(String[] args) {
@@ -55,5 +52,24 @@ public class IntervalsIntersection {
             System.out.print("[" + interval.start + "," + interval.end + "] ");
         }
         System.out.println();
+    }
+
+    public int[][] intervalIntersection(int[][] A, int[][] B) {
+        List<int[]> resultList = new LinkedList<>();
+        int i = 0, j = 0;
+        while(i<A.length && j<B.length){
+            if(A[i][0]>=B[j][0]&&A[i][0]<=B[j][1] || B[j][0]>=A[i][0]&&B[j][0]<=A[i][1]){
+                //此时两个区间有交集
+                int start = Math.max(A[i][0], B[j][0]);
+                int end = Math.min(A[i][1], B[j][1]);
+                resultList.add(new int[]{start, end});
+            }
+            if(A[i][1]>=B[j][1]){
+                j++;
+            } else {
+                i++;
+            }
+        }
+        return resultList.toArray(new int[0][0]);
     }
 }
